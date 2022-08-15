@@ -102,7 +102,7 @@ def get_one_task(id):
     task = Task.query.filter_by(id=id).first()
 
     if not task:
-        return make_response(jsonify("id not found"), 404)
+        return make_response(jsonify("ID not found!"), 404)
 
     result = {}
     result["name"] = task.name
@@ -117,9 +117,9 @@ def delete_task(id):
     task = Task.query.filter_by(id=id).first()
 
     if not task:
-        return make_response(jsonify("Task id not found"), 404)
+        return make_response(jsonify("Task ID not found!"), 404)
 
     db.session.delete(task)
     db.session.commit()
 
-    return make_response(jsonify("Deleted!"), 200)
+    return make_response(jsonify("Task deleted!"), 200)
